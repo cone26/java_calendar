@@ -1,8 +1,13 @@
 package siwon.calendar;
-
 import java.util.Scanner;
 
 public class Calendar {
+	int[] monthDays = {31,28,31,30,31,30,31,31,30,31,30,31};
+
+
+	public int maxDaysOfMonth(int month) {
+		return monthDays[month -1 ];
+	}
 	public static void main(String[] args) {
 		System.out.println("일   월   화   수   목   금   토");
 		System.out.println("--------------------");
@@ -17,11 +22,13 @@ public class Calendar {
 		System.out.println("달을 입력하세요.> ");
 		//스캐너 열기
 		Scanner scanner = new Scanner(System.in);
+		Calendar cal = new Calendar();
 		// 입력받은 숫자 변수에 담기
 		int month = scanner.nextInt();
 		//최대 일수 배열 만들기
-		int[] monthDays = {31,28,31,30,31,30,31,31,30,31,30,31};
+		
 	
-		System.out.printf("%d월은 %d일까지 있습니다.%n", month, monthDays[month-1]);
+		System.out.printf("%d월은 %d일까지 있습니다.%n", month, cal.maxDaysOfMonth(month));
+
 	}
 }
